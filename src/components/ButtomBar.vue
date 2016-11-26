@@ -1,7 +1,7 @@
 <template lang="html">
   <md-bottom-bar md-shift v-md-theme="playground.theme">
-    <md-bottom-bar-item @click="setTheme('indigo');page('/')" md-icon="assignment">Recents</md-bottom-bar-item>
-    <md-bottom-bar-item @click="setTheme('default');page('/page2')" md-icon="history">History</md-bottom-bar-item>
+    <md-bottom-bar-item @click="setTheme('indigo', '/');page('/')" md-icon="assignment">Recents</md-bottom-bar-item>
+    <md-bottom-bar-item @click="setTheme('default', 'history');page('/page2')" md-icon="history">History</md-bottom-bar-item>
   </md-bottom-bar>
 </template>
 
@@ -15,10 +15,8 @@ export default {
     }
   },
   methods: {
-    setTheme (theme) {
+    setTheme (theme, path) {
       this.playground.theme = theme
-    },
-    page (path) {
       this.$router.push({path: path})
     }
   }

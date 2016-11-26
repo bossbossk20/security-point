@@ -5,10 +5,11 @@ import Page1 from './pages/page1'
 import Page2 from './pages/page2'
 import Page3 from './pages/page3'
 import VueMaterial from 'vue-material'
+import axios from 'axios'
 import 'vue-material/dist/vue-material.css'
 Vue.use(VueRouter)
 Vue.use(VueMaterial)
-
+Vue.prototype.$http = axios
 Vue.material.theme.registerAll({
   default: {
     primary: 'cyan',
@@ -35,7 +36,7 @@ Vue.material.theme.registerAll({
 const router = new VueRouter({
   routes: [
     { path: '/', component: Page1 },
-    { path: '/page2', component: Page2 },
+    { path: '/history', component: Page2 },
     { path: '/page3', component: Page3 }
   ]
 })
