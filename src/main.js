@@ -32,7 +32,6 @@ Vue.material.theme.registerAll({
     accent: 'pink'
   }
 })
-
 const router = new VueRouter({
   routes: [
     { path: '/', component: Page1 },
