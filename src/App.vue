@@ -15,6 +15,21 @@ export default {
   name: 'app',
   components: {
     ButtomBar
+  },
+  data () {
+    return {
+      inactive: [],
+      history: []
+    }
+  },
+  mounted () {
+    this.$http.get('https://api-iot.herokuapp.com/api/inactive').then((inac) => {
+      this.inactive = inac.data
+      this.$http.get('https://api-iot.herokuapp.com/api/history').then((hist) => {
+        this.history = hist.data
+        this.$store.dispatch('addData', {inactive: this.inactive, history: this.history})
+      })
+    })
   }
 }
 </script>

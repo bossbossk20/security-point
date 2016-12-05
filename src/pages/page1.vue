@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <h1>Recents</h1>
-    <md-list class="custom-list md-triple-line" v-for="item in inActive">
+    <md-list class="custom-list md-triple-line" v-for="item in data.api.data.inactive">
       <md-list-item>
         <md-avatar>
           <img src="./../assets/red.png">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -30,10 +31,15 @@ export default {
     }
   },
   mounted () {
-    this.$http.get(this.uri + 'inactive').then((res) => {
-      console.log(res.data)
-      this.inActive = res.data
-    })
+    // this.$http.get(this.uri + 'inactive').then((res) => {
+    //   console.log(res.data)
+    //   this.inActive = res.data
+    // })
+  },
+  computed: {
+    ...mapState([
+      'data'
+    ])
   }
 }
 </script>

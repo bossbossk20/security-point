@@ -3,14 +3,12 @@ import VueRouter from 'vue-router'
 import App from './App'
 import Page1 from './pages/page1'
 import Page2 from './pages/page2'
-import Page3 from './pages/page3'
 import VueMaterial from 'vue-material'
 import Axios from 'axios'
-import Vuex from 'vuex'
+import store from './store'
 import 'vue-material/dist/vue-material.css'
 Vue.use(VueRouter)
 Vue.use(VueMaterial)
-Vue.use(Vuex)
 Vue.prototype.$http = Axios
 Vue.material.theme.registerAll({
   default: {
@@ -37,11 +35,11 @@ Vue.material.theme.registerAll({
 const router = new VueRouter({
   routes: [
     { path: '/', component: Page1 },
-    { path: '/history', component: Page2 },
-    { path: '/page3', component: Page3 }
+    { path: '/history', component: Page2 }
   ]
 })
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

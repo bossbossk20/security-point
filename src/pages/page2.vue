@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <h1>History</h1>
-    <md-list class="custom-list md-triple-line" v-for="item in histories">
+    <md-list class="custom-list md-triple-line" v-for="item in data.api.data.history">
       <md-list-item>
         <md-avatar>
           <img src="./../assets/green.png">
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import moment from 'moment'
 export default {
   data () {
@@ -35,10 +36,15 @@ export default {
     }
   },
   mounted () {
-    this.$http.get(this.uri + 'history').then((res) => {
-      console.log(res.data)
-      this.histories = res.data
-    })
+    // this.$http.get(this.uri + 'history').then((res) => {
+    //   console.log(res.data)
+    //   this.histories = res.data
+    // })
+  },
+  computed: {
+    ...mapState([
+      'data'
+    ])
   }
 }
 </script>
