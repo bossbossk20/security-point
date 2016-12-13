@@ -1,28 +1,28 @@
 <template lang="html">
-  <div>
-    <h1>Recents</h1>
-    <md-list class="custom-list md-triple-line" v-for="item in data.api.data.inactive">
-      <md-list-item>
-        <md-avatar>
-          <img src="./../assets/red.png">
-        </md-avatar>
+  <div >
+    <h2>Recents inActive Point</h2>
+    <div class="phone-viewport">
+  <md-list v-for="item in data.api.data.inactive">
+    <md-list-item>
+      <md-avatar>
+        <img src="./../assets/red.png">
+      </md-avatar>
+      <span># {{item.count}} <img src="./../assets/clock-128.png" class="clock"> {{moment(item.timestamp)}}</span>
+      <md-list-expand>
+        <md-list v-for="location in item.locations">
+          <md-list-item class="md-inset">{{location.location}} {{locat(location.location)}}</md-list-item>
+        </md-list>
+      </md-list-expand>
+    </md-list-item>
 
-        <div class="md-list-text-container">
-          <span># {{item.count}}</span>
-          <span>InActive Point : <b v-for="location in item.locations">{{location.location}} </b></span>
-          <!-- <p>I'll be in your neighborhood doing errands...</p> -->
-        </div>
-        <md-button class="md-icon-button md-list-action">
-          <md-icon class="md-primary">star</md-icon>
-        </md-button>
-        <md-divider class="md-inset"></md-divider>
-      </md-list-item>
-    </md-list>
+  </md-list>
+</div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import moment from 'moment'
 export default {
   data () {
     return {
@@ -40,6 +40,26 @@ export default {
     ...mapState([
       'data'
     ])
+  },
+  methods: {
+    locat: function (num) {
+      if (num === '1') {
+        return 'หน้าห้องพวงครวม 2'
+      } else if (num === '2') {
+        return 'ห้องนำ้หน้ามินิมาร์ท'
+      } else if (num === '3') {
+        return 'ห้องนำ้สำนักคอม'
+      } else if (num === '4') {
+        return 'หน้าห้องพยาบาล'
+      } else if (num === '5') {
+        return 'หน้าห้องนำ้ลิฟหลัง'
+      } else if (num === '6') {
+        return 'ลานกลางฝั่งสำนักงานคณบดี'
+      }
+    },
+    moment: function (date) {
+      return moment(date).format('DD/MM/YYYY, h:mm:ss a')
+    }
   }
 }
 </script>

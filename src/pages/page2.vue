@@ -8,7 +8,7 @@
         </md-avatar>
 
         <div class="md-list-text-container">
-          <span>Location: {{ item.location}}</span>
+          <span>Location: {{item.location}} {{ location(item.location)}}</span>
           <span>Date Time: {{moment(item.timestamp)}}</span>
         </div>
         <md-button class="md-icon-button md-list-action">
@@ -33,6 +33,21 @@ export default {
   methods: {
     moment: function (date) {
       return moment(date).format('MMMM Do YYYY, h:mm:ss a')
+    },
+    location: function (num) {
+      if (num === '1') {
+        return 'หน้าห้องพวงครวม 2'
+      } else if (num === '2') {
+        return 'ห้องนำ้หน้ามินิมาร์ท'
+      } else if (num === '3') {
+        return 'ห้องนำ้สำนักคอม'
+      } else if (num === '4') {
+        return 'หน้าห้องพยาบาล'
+      } else if (num === '5') {
+        return 'หน้าห้องนำ้ลิฟหลัง'
+      } else if (num === '6') {
+        return 'ลานกลางฝั่งสำนักงานคณบดี'
+      }
     }
   },
   mounted () {

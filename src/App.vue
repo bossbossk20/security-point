@@ -36,11 +36,22 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+}
+.location {
+  color: black;
+  font-size: 36px;
+}
+.img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.title {
+  font-size: 20px;
+}
+.clock {
+  width: 20px;
+  padding-left: 5px;
 }
 </style>
