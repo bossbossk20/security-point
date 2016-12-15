@@ -1,22 +1,24 @@
 <template lang="html">
   <div >
     <h2>Recents inActive Point</h2>
-    <div class="phone-viewport">
-  <md-list v-for="item in data.api.data.inactive">
-    <md-list-item>
-      <md-avatar>
-        <img src="./../assets/red.png">
-      </md-avatar>
-      <span># {{item.count}} <img src="./../assets/clock-128.png" class="clock"> {{moment(item.timestamp)}}</span>
-      <md-list-expand>
-        <md-list v-for="location in item.locations">
-          <md-list-item class="md-inset">{{location.location}} {{locat(location.location)}}</md-list-item>
-        </md-list>
-      </md-list-expand>
-    </md-list-item>
-
-  </md-list>
-</div>
+    <div class="phone-viewport" v-show="data.api.data.inactive.length != 0">
+      <md-list v-for="item in data.api.data.inactive" style="z-index:0;">
+        <md-list-item>
+          <md-avatar>
+            <img src="./../assets/red.png">
+          </md-avatar>
+          <span># {{item.count}} <img src="./../assets/clock-128.png" class="clock"> {{moment(item.timestamp)}}</span>
+          <md-list-expand>
+            <md-list v-for="location in item.locations">
+              <md-list-item class="md-inset">{{location.location}} {{locat(location.location)}}</md-list-item>
+            </md-list>
+          </md-list-expand>
+        </md-list-item>
+      </md-list>
+    </div>
+    <div v-show="data.api.data.inactive.length == 0">
+      <h3>All of point was Active</h3>
+    </div>
   </div>
 </template>
 
