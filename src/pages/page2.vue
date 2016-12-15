@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="history">
     <h1>History</h1>
     <md-list class="custom-list md-triple-line" v-for="item in data.api.data.history">
       <md-list-item>
@@ -11,9 +11,6 @@
           <span>Location: {{item.location}} {{ location(item.location)}}</span>
           <span>Date Time: {{moment(item.timestamp)}}</span>
         </div>
-        <md-button class="md-icon-button md-list-action">
-          <md-icon class="md-primary">star</md-icon>
-        </md-button>
         <md-divider class="md-inset"></md-divider>
       </md-list-item>
     </md-list>

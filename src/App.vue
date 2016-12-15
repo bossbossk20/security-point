@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" onscroll="scroll(e)">
     <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
@@ -32,6 +32,16 @@ export default {
     })
   }
 }
+window.addEventListener('scroll', scrollFunction)
+function scrollFunction () {
+  console.log(document.body.scrollTop)
+  var bar = document.querySelector('.md-bottom-bar')
+  if (document.body.scrollTop !== 0) {
+    bar.classList.add('scroll')
+  } else if (document.body.scrollTop === 0) {
+    bar.classList.remove('scroll')
+  }
+}
 </script>
 
 <style>
@@ -53,6 +63,12 @@ export default {
 .clock {
   width: 20px;
   padding-left: 5px;
+}
+.scroll {
+  transform: translateY(100px);
+}
+.unScroll {
+  transform: translateY(-100px);
 }
 
 </style>
