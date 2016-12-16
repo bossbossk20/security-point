@@ -33,15 +33,15 @@ export default {
     },
     location: function (num) {
       if (num === '1') {
-        return 'หน้าห้องพวงครวม 2'
+        return 'หน้าห้องพวงคราม 2'
       } else if (num === '2') {
         return 'ห้องนำ้หน้ามินิมาร์ท'
       } else if (num === '3') {
-        return 'ห้องนำ้สำนักคอม'
+        return 'ห้องนำ้หน้าห้องคอมพิวเตอร์'
       } else if (num === '4') {
         return 'หน้าห้องพยาบาล'
       } else if (num === '5') {
-        return 'หน้าห้องนำ้ลิฟหลัง'
+        return 'หน้าห้องนำ้ลิฟท์หลัง'
       } else if (num === '6') {
         return 'ลานกลางฝั่งสำนักงานคณบดี'
       }
@@ -59,6 +59,7 @@ export default {
     ])
   }
 }
+
 </script>
 
 <style lang="css">
